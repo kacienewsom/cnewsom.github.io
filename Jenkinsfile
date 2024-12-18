@@ -26,7 +26,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build . '
+        sh 'docker build . -t kacienewsom/cnewsom.github.io:latest'
       }
     }
 
