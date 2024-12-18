@@ -7,9 +7,20 @@ pipeline {
       }
     }
 
-    stage('') {
-      steps {
-        sh 'ls -la'
+    stage('error') {
+      parallel {
+        stage('Log') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
+        stage('Front-end unit tests') {
+          steps {
+            sh 'npm i && npm run test:unit'
+          }
+        }
+
       }
     }
 
